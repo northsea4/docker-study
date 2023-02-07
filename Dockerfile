@@ -1,23 +1,23 @@
-FROM linuxserver/rdesktop:ubuntu-kde
+FROM --platform=$BUILDPLATFORM linuxserver/rdesktop:ubuntu-kde
 LABEL maintainer="stainless403"
 LABEL description="base on linuxserver/rdesktop:ubuntu-kde"
 
-# platform of the build result. Eg linux/amd64, linux/arm/v7, windows/amd64.
-ARG TARGETPLATFORM
-# OS component of TARGETPLATFORM
-ARG TARGETOS
-# architecture component of TARGETPLATFORM. Eg amd64, arm64
-ARG TARGETARCH
-# variant component of TARGETPLATFORM
-ARG TARGETVARIANT
-# platform of the node performing the build.
-ARG BUILDPLATFORM
-# OS component of BUILDPLATFORM
-ARG BUILDOS
-# architecture component of BUILDPLATFORM
-ARG BUILDARCH
-# variant component of BUILDPLATFORM
-ARG BUILDVARIANT
+# # platform of the build result. Eg linux/amd64, linux/arm/v7, windows/amd64.
+# ARG TARGETPLATFORM
+# # OS component of TARGETPLATFORM
+# ARG TARGETOS
+# # architecture component of TARGETPLATFORM. Eg amd64, arm64
+# ARG TARGETARCH
+# # variant component of TARGETPLATFORM
+# ARG TARGETVARIANT
+# # platform of the node performing the build.
+# ARG BUILDPLATFORM
+# # OS component of BUILDPLATFORM
+# ARG BUILDOS
+# # architecture component of BUILDPLATFORM
+# ARG BUILDARCH
+# # variant component of BUILDPLATFORM
+# ARG BUILDVARIANT
 
 ENV USER_ID         0
 ENV GROUP_ID        0
