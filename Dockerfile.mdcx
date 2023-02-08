@@ -18,7 +18,9 @@ RUN rm -f /app/config.ini && \
 
 # 应用配置目录。基础镜像里已存在/config目录
 RUN mkdir /mdcx_config && \
-  mkdir -p /config/my_home
+  mkdir -p /config/my_home && \
+  && chown -R app:app /app && \
+  && chown -R app:app /mdcx_config
 
 WORKDIR /app
 
