@@ -2,9 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    branches: [ "gui-base" ]
 
 jobs:
 
@@ -21,8 +19,8 @@ jobs:
         # https://github.com/docker/setup-qemu-action
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
-        with:
-          platforms: 'linux/arm64'
+        #with:
+        #  platforms: 'linux/arm64'
       -
         name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
@@ -41,4 +39,4 @@ jobs:
             linux/amd64
             linux/arm64
           push: true
-          tags: stainless403/rdesktop-kde:latest
+          tags: stainless403/gui-base:latest,stainless403/gui-base:0.2.2
