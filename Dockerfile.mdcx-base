@@ -17,7 +17,6 @@ ENV PYPI_MIRROR     "https://pypi.doubanio.com/simple"
 # 应用配置目录。基础镜像里已存在/config目录
 RUN mkdir /mdcx_config && \
   mkdir -p /config/my_home && \
-  chmod -R 777 /app && \
   chmod -R 777 /mdcx_config
 
 # 容器启动时执行的脚本
