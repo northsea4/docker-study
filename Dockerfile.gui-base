@@ -1,4 +1,4 @@
-FROM jlesage/baseimage-gui:ubuntu-18.04-v4
+FROM --platform=$BUILDPLATFORM jlesage/baseimage-gui:ubuntu-18.04-v4
 LABEL maintainer="stainless403"
 LABEL description="base on jlesage/baseimage-gui:ubuntu"
 
@@ -16,10 +16,11 @@ ENV DISPLAY_WIDTH   "1200"
 # 高度(px)
 ENV DISPLAY_HEIGHT  "750"
 # apt镜像
-ENV APT_SOURCE_HOST "mirrors.ustc.edu.cn"
+# ENV APT_SOURCE_HOST "mirrors.ustc.edu.cn"
 
 # 替换默认源，使用加速镜像
-RUN sed -i "s/archive.ubuntu.com/${APT_SOURCE_HOST}/g" /etc/apt/sources.list
+# RUN sed -i "s/archive.ubuntu.com/${APT_SOURCE_HOST}/g" /etc/apt/sources.list
+
 # 更新软件列表
 RUN apt-get update -y
 
