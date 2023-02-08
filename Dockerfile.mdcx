@@ -1,0 +1,30 @@
+FROM --platform=$BUILDPLATFORM stainless403/gui-base:latest
+LABEL maintainer="stainless403"
+LABEL description="MDCx Docker版，内置了MDCx应用"
+
+# TODO 没效果
+ARG APP_VERSION
+
+ARG SOURCE_DIR=".mdcx_src"
+
+ENV APP_NAME        "MDCx Docker"
+ENV APP_VERSION     $APP_VERSION
+
+# 复制应用文件到`/app`。文件路径示例：`app/MDCx_Main.py`
+ADD $SOURCE_DIR /app
+# 删除动态文件
+RUN rm -f /app/config.ini && \
+    rm -rf /app/Log
+
+# 应用配置目录。基础镜像里已存在/config目录
+RUN mkdir /mdcx_config
+
+WORKDIR /app
+
+RUN python3.9 -m pip install \
+    --no-cache-dir -r requirements.txt \
+    touch /app/.mdcx_initialized && \
+    touch /.mdcx_initialized
+
+# 容器启动时执行的脚本
+COPY startapp.sh /startapp.sh
