@@ -2,7 +2,7 @@ name: Docker Image CI
 
 on:
   push:
-    branches: [ "gui-base" ]
+    branches: [ "mdcx" ]
 
 jobs:
 
@@ -15,11 +15,19 @@ jobs:
         name: Checkout
         uses: actions/checkout@v3
       -
+        name: Install packages
+        run: sudo apt-get install -y unrar
+      -
         uses: cardinalby/export-env-action@v2
         id: envVersions
         with:
           envFile: '.env.versions'
           export: 'false'
+      -
+        name: Prepare app src
+        id: prepare
+        run: |
+          ./prepare-app.sh
       -
         # Add support for more platforms with QEMU (optional)
         # https://github.com/docker/setup-qemu-action
@@ -46,4 +54,4 @@ jobs:
             linux/amd64
             linux/arm64
           push: true
-          tags: stainless403/gui-base:latest,stainless403/gui-base:${{ steps.envVersions.outputs.GUI_BASE_VERSION }}
+          tags: stainless403/mdcx:latest,stainless403/mdcx:${{ steps.prepare.outputs.MDCX_IMAGE_VERSION }}
