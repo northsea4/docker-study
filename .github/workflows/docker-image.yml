@@ -14,11 +14,12 @@ jobs:
       - 
         name: Checkout
         uses: actions/checkout@v3
-      - 
+      -
+        uses: cardinalby/export-env-action@v2
         id: envVersions
-        uses: ./.github/actions/dotenv-action
         with:
-          path: .env.versions
+          envFile: '.env.versions'
+          export: 'false'
       -
         # Add support for more platforms with QEMU (optional)
         # https://github.com/docker/setup-qemu-action
