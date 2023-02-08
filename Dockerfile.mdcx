@@ -23,7 +23,7 @@ RUN mkdir /mdcx_config && \
 WORKDIR /app
 
 RUN python3.9 -m pip install \
-    --no-cache-dir -r requirements.txt \
+    --no-cache-dir -r requirements.txt && \
     touch /app/.mdcx_initialized && \
     touch /config/my_home/.mdcx_initialized
 
