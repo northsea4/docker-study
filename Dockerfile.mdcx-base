@@ -10,8 +10,8 @@ ENV APP_NAME        "MDCx Docker"
 ENV APP_VERSION     $APP_VERSION
 
 # pip源
-ENV PYPI_MIRROR       "https://pypi.org/simple"
-# ENV PYPI_MIRROR     "https://pypi.doubanio.com/simple"
+ENV PYPI_MIRROR     "https://pypi.doubanio.com/simple"
+# ENV PYPI_MIRROR     "https://pypi.org/simple"
 # ENV PYPI_MIRROR     "https://pypi.tuna.tsinghua.edu.cn/simple"
 
 # 应用配置目录。基础镜像里已存在/config目录
