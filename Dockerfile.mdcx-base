@@ -1,4 +1,4 @@
-FROM stainless403/gui-base:latest
+FROM --platform=$BUILDPLATFORM stainless403/gui-base:latest
 
 LABEL maintainer="stainless403"
 LABEL description="用于运行MDCx的基础镜像，没有内置MDCx"
