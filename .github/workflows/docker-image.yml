@@ -46,4 +46,4 @@ jobs:
             linux/amd64
             linux/arm64
           push: true
-          tags: stainless403/mdcx-base:latest,stainless403/mdcx-base:${{ steps.prepare.outputs.MDCX_BASE_IMAGE_VERSION }}
+          tags: stainless403/mdcx-base:latest,stainless403/mdcx-base:${{ steps.envVersion.outputs.MDCX_BASE_IMAGE_VERSION }}
