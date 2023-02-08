@@ -26,10 +26,10 @@ else
 fi
 
 # 创建标记文件
-if [ !f "$FILE_INITIALIZED" ]; then
+if [ ! -f "$FILE_INITIALIZED" ]; then
   touch ${FILE_INITIALIZED}
 fi
-if [ !f "$FILE_INITIALIZED_INSIDE" ]; then
+if [ ! -f "$FILE_INITIALIZED_INSIDE" ]; then
   touch ${FILE_INITIALIZED_INSIDE}
 fi
 
