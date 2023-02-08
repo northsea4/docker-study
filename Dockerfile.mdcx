@@ -17,14 +17,15 @@ RUN rm -f /app/config.ini && \
     rm -rf /app/Log
 
 # 应用配置目录。基础镜像里已存在/config目录
-RUN mkdir /mdcx_config
+RUN mkdir /mdcx_config && \
+  mkdir -p /config/my_home
 
 WORKDIR /app
 
 RUN python3.9 -m pip install \
     --no-cache-dir -r requirements.txt \
     touch /app/.mdcx_initialized && \
-    touch /.mdcx_initialized
+    touch /config/my_home/.mdcx_initialized
 
 # 容器启动时执行的脚本
 COPY startapp.sh /startapp.sh
