@@ -70,7 +70,6 @@ if [[ -n "$archiveUrl" ]]; then
   fi
 fi
 
-
 if [[ -z "$imageVersion" ]]; then
   imageVersion="$appVersion"
 fi
